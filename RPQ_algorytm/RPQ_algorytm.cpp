@@ -37,6 +37,11 @@ public:
 		GetData();
 	}
 
+	vector<RPQ> getList()
+	{
+		return this->lista;
+	}
+
 	void GetData() {
 		number_of_data = 0;
 		string n;
@@ -77,8 +82,15 @@ public:
 		}
 	}
 
-	vector<int> sortR(vector<RPQ> lista)
+	vector<RPQ> sortR(vector<RPQ> lista)
 	{
+		//vector<RPQ> lis = lista;
+
+		sort(lista.begin(), lista.end(), [](const RPQ l, const RPQ r) {
+			return l.R < r.R;
+			});
+
+		return lista;
 	}
 };
 
@@ -101,4 +113,11 @@ int main()
 
 	Dane data4 = Dane("dane4.txt");
 	data4.printDane();
+
+	vector<RPQ> sortR_Dane1 = data1.sortR(data1.getList());
+
+	for (auto x : sortR_Dane1)
+	{
+		cout << x.index << " ";
+	}
 }
