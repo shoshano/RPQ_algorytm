@@ -4,6 +4,7 @@
 #include <string>
 #include <sstream>
 #include <algorithm>
+#include <time.h>
 
 using namespace std;
 
@@ -92,32 +93,69 @@ public:
 
 		return lista;
 	}
+
+	vector<RPQ> sortRQ(vector<RPQ> lista)
+	{
+		//vector<RPQ> lis = lista;
+
+		sort(lista.begin(), lista.end(), [](const RPQ l, const RPQ r) {
+			int x = l.R / l.Q;
+			int y = r.R / r.Q;
+			return x < y;
+			});
+
+		return lista;
+	}
 };
 
 int main()
 {
 	Dane data1 = Dane("dane1.txt");
-	data1.printDane();
-
-	cout << "=======================================\n";
+	//data1.printDane();
+	//cout << "=======================================\n";
 
 	Dane data2 = Dane("dane2.txt");
-	data2.printDane();
-
-	cout << "=======================================\n";
+	//data2.printDane();
+	//cout << "=======================================\n";
 
 	Dane data3 = Dane("dane3.txt");
-	data3.printDane();
-
-	cout << "=======================================\n";
+	//data3.printDane
+	//cout << "=======================================\n";
 
 	Dane data4 = Dane("dane4.txt");
-	data4.printDane();
+	//data4.printDane();
 
+	//SortR
 	vector<RPQ> sortR_Dane1 = data1.sortR(data1.getList());
+	vector<RPQ> sortR_Dane2 = data1.sortR(data2.getList());
+	vector<RPQ> sortR_Dane3 = data1.sortR(data3.getList());
+	vector<RPQ> sortR_Dane4 = data1.sortR(data4.getList());
 
-	for (auto x : sortR_Dane1)
+	vector<vector<RPQ>> SortR_All;
+	SortR_All.push_back(sortR_Dane1);
+	SortR_All.push_back(sortR_Dane2);
+	SortR_All.push_back(sortR_Dane3);
+	SortR_All.push_back(sortR_Dane4);
+
+	cout << "SortR: " << endl;
+	for (auto x : SortR_All)
 	{
+		//cout<<"Data: "<< <<endl
+		for (auto y : x)
+		{
+			cout << y.index << " ";
+		}
+		cout << endl << endl;
+	}
+	cout << endl << endl;
+
+	vector<RPQ> sortRQ_Dane1 = data1.sortRQ(data1.getList());
+
+	cout << "SortRQ: " << endl;
+	for (auto x : sortRQ_Dane1)
+	{
+		//c += x.P;
 		cout << x.index << " ";
 	}
+	cout << endl << endl;
 }
