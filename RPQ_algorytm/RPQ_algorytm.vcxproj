@@ -127,7 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Dane.cpp" />
+    <ClCompile Include="Result.cpp" />
+    <ClCompile Include="RPQ.cpp" />
     <ClCompile Include="RPQ_algorytm.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Dane.h" />
+    <ClInclude Include="Result.h" />
+    <ClInclude Include="RPQ.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
