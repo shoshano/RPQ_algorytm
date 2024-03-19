@@ -13,8 +13,10 @@ class Dane
 	std::vector <RPQ> list;
 	int number_of_data;
 	std::string file_path;
+	
 
 public:
+	int c_max;
 	Dane(std::string fp);
 
 	std::vector<RPQ> getList();

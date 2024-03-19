@@ -3,6 +3,7 @@
 Dane::Dane(std::string fp) {
 	file_path = fp;
 	GetData();
+	c_max = 0;
 }
 
 std::vector<RPQ> Dane::getList()
@@ -77,7 +78,7 @@ std::vector<RPQ> Dane::schrage() {
 	std::vector<RPQ> orgin = this->list;
 	std::vector<RPQ> ready;
 	std::vector<RPQ> result;
-	int c_max = 0;
+	c_max = 0;
 	int t = 0;
 	while (!orgin.empty() || !ready.empty()) {
 
@@ -104,7 +105,7 @@ std::vector<RPQ> Dane::schrage() {
 }
 
 std::vector<RPQ> Dane::schargePmtn() {
-	int c_max = 0;
+	c_max = 0;
 	std::vector<RPQ> orgin = list;
 	std::vector<RPQ> ready;
 	std::vector<RPQ> result;

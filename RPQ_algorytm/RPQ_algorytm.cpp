@@ -21,6 +21,7 @@ d4 calier
 
 int main()
 {
+	int c = 0;
 	string filenameTab[4] = { "dane1.txt" , "dane2.txt", "dane3.txt", "dane4.txt" };
 	vector<Dane> dataTab;
 	for (int i = 0; i < 4; i++)
@@ -29,9 +30,16 @@ int main()
 		dataTab.push_back(temp);
 	}
 	
+	for (int i = 0; i < 4; i++) 
+	{
+		dataTab.at(i).schrage();
+		c += dataTab.at(i).c_max;
+
+	}
 	
-	vector<RPQ> sh_Dane1 = dataTab.at(0).schargePmtn();
-	for (auto x : sh_Dane1)
+	cout << "czas = " << c << endl;
+	
+	/*for (auto x : sh_Dane1)
 	{
 		cout << x << " ";
 	}
@@ -40,7 +48,7 @@ int main()
 	for (auto x : sh_Dane2)
 	{
 		cout << x.index << " ";
-	}
+	}*/
 		//cout << endl << endl;
 	//vector<RPQ> sortR_Dane2 = data1.sortR(data2.getList());
 	//vector<RPQ> sortR_Dane3 = data1.sortR(data3.getList());
