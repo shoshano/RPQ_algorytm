@@ -28,6 +28,8 @@ public:
 	friend bool comparatorR(const RPQ& r1, const RPQ& r2);
 	friend bool comparatorQ(const RPQ& r1, const RPQ& r2);
 
+	int getC_max(std::vector<RPQ> order);
+
 	std::vector<RPQ> inOrder();
 
 	std::vector<RPQ> sortR();
@@ -36,7 +38,7 @@ public:
 
 	std::vector<RPQ> schargePmtn();
 
-	std::vector<RPQ> c100();
+	std::vector<RPQ> TabuSearch();
 
 	std::vector<RPQ> carlier();
 

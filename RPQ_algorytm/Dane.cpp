@@ -11,6 +11,26 @@ std::vector<RPQ> Dane::getList()
 	return this->list;
 }
 
+int Dane::getC_max(std::vector<RPQ> order)
+{
+	int t = 0;
+	int C_max = 0;
+	for (auto a : order)
+	{
+		if (t < a.R) {
+			t = a.R + a.P;
+		}
+		else {
+			t += a.P;
+		}
+		if (C_max < t + a.Q) {
+			C_max = t + a.Q;
+		}
+	}
+	return C_max;
+}
+
+
 void Dane::GetData() {
 	number_of_data = 0;
 	std::string n;
@@ -144,4 +164,43 @@ std::vector<RPQ> Dane::schargePmtn() {
 		ready.erase(max_ele);
 	}
 	return result;
+}
+
+std::vector<RPQ> Dane::TabuSearch()
+{
+	//std::vector<RPQ> s = sortR();
+	std::vector<RPQ> s = schrage();
+	std::vector<RPQ> best = s;
+	//std::vector<RPQ> t;
+
+	int bestC_max = getC_max(best);
+
+	std::vector<std::vector<RPQ>> neighbors;
+	for (int i = 0; i < s.size(); i++)
+	{
+		for (int j = i + 1; j < s.size(); j++)
+		{
+			std::vector<RPQ> neighbor = s;
+			std::swap(neighbor.at(i), neighbor.at(j));
+			neighbors.push_back(neighbor);
+		}
+	}
+
+	//while (bestC_max <= 100300)
+	//{
+
+		for (auto x : neighbors) 
+		{
+			int tmpC_max = getC_max(x);
+			if (tmpC_max < bestC_max)
+			{
+				best = x;
+				bestC_max = tmpC_max;
+			}
+		}
+
+		
+	//}
+	c_max = bestC_max;
+	return best;
 }

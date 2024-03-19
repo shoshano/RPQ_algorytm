@@ -30,14 +30,18 @@ int main()
 		dataTab.push_back(temp);
 	}
 	
-	for (int i = 0; i < 4; i++) 
-	{
-		dataTab.at(i).schrage();
-		c += dataTab.at(i).c_max;
-
-	}
 	
+	for (int i = 0; i < 4; i++)
+	{
+		std::vector<RPQ> TS1 = dataTab.at(i).TabuSearch();
+		c += dataTab.at(i).c_max;
+		cout << "czas " << i+1 << " = " << dataTab.at(i).c_max << endl;
+	
+	}
 	cout << "czas = " << c << endl;
+
+
+
 	
 	/*for (auto x : sh_Dane1)
 	{
