@@ -21,6 +21,8 @@ d4 calier
 
 int main()
 {
+	clock_t start, stop;
+
 	int c = 0;
 	string filenameTab[4] = { "dane1.txt" , "dane2.txt", "dane3.txt", "dane4.txt" };
 	vector<Dane> dataTab;
@@ -30,7 +32,7 @@ int main()
 		dataTab.push_back(temp);
 	}
 	
-	
+	start = clock();
 	for (int i = 0; i < 4; i++)
 	{
 		if (i == 1) {
@@ -44,6 +46,23 @@ int main()
 		cout << "czas " << i+1 << " = " << dataTab.at(i).c_max << endl;
 	
 	}
+	stop = clock() - start;
 	cout << "czas = " << c << endl;
+	cout << "Czas w sekundach: " << ((float)stop) / CLOCKS_PER_SEC << "s\n";
 	cout << "----------------------\n";
+
+	for (int i = 0; i < 4; i++) {
+		if (i == 1) {
+			for (auto x : dataTab.at(i).schargePmtn()) {
+				cout << x.index << " ";
+			}
+		}
+		else {
+			for (auto x : dataTab.at(i).TabuSearch()) {
+				cout << x.index << " ";
+			}
+		}
+		cout << "\n----------------------\n";
+
+	}
 }

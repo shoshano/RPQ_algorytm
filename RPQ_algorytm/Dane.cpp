@@ -146,7 +146,7 @@ std::vector<RPQ> Dane::schargePmtn() {
 					ready.push_back(l);
 					result.pop_back();
 				}
-				
+
 			}
 			min_ele = std::min_element(orgin.begin(), orgin.end(), comparatorR);
 		}
