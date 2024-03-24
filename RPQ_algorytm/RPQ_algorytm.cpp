@@ -34,7 +34,7 @@ int main()
 	for (int i = 0; i < 4; i++)
 	{
 		if (i == 1) {
-			std::vector<RPQ> TS1 = dataTab.at(i).metodForData2();
+			std::vector<RPQ> TS1 = dataTab.at(i).schargePmtn();
 		}
 		else {
 			std::vector<RPQ> TS1 = dataTab.at(i).TabuSearch();
@@ -45,63 +45,5 @@ int main()
 	
 	}
 	cout << "czas = " << c << endl;
-
-	
-	vector<RPQ> sh_Dane2 = dataTab.at(1).metodForData2();
-	int zmienna = 0;
-	for (auto x : sh_Dane2)
-	{
-		cout << x.index << " ";
-		if (x.index < 24) {
-			zmienna += x.P;
-		}
-		else {
-			break;
-		}
-	}
-	cout << endl << zmienna << endl;
-
-	
-	/*for (auto x : sh_Dane1)
-	{
-		cout << x << " ";
-	}
 	cout << "----------------------\n";
-	vector<RPQ> sh_Dane2 = dataTab.at(0).schrage();
-	for (auto x : sh_Dane2)
-	{
-		cout << x.index << " ";
-	}*/
-		//cout << endl << endl;
-	//vector<RPQ> sortR_Dane2 = data1.sortR(data2.getList());
-	//vector<RPQ> sortR_Dane3 = data1.sortR(data3.getList());
-	//vector<RPQ> sortR_Dane4 = data1.sortR(data4.getList());
-
-	//vector<vector<RPQ>> SortR_All;
-	//SortR_All.push_back(sortR_Dane1);
-	//SortR_All.push_back(sortR_Dane2);
-	//SortR_All.push_back(sortR_Dane3);
-	//SortR_All.push_back(sortR_Dane4);
-
-	/*cout << "SortR: " << endl;
-	for (auto x : SortR_All)
-	{
-		//cout<<"Data: "<< <<endl
-		for (auto y : x)
-		{
-			cout << y.index << " ";
-		}
-		cout << endl << endl;
-	}
-	cout << endl << endl;*/
-
-	//vector<RPQ> sortR_Dane1 = data1.sortR();
-
-	//ut << "SortRQ: " << endl;
-	//for (auto x : sortR_Dane1)
-	//{
-		//c += x.P;
-		//cout << x.index << " ";
-	//}
-	//cout << endl << endl;
 }

@@ -44,6 +44,8 @@ public:
 
 	std::vector<RPQ> metodForData2();
 
+	std::vector<RPQ> metodForData2_Maciek();
+
 
 
 	
