@@ -204,3 +204,49 @@ std::vector<RPQ> Dane::TabuSearch()
 	c_max = bestC_max;
 	return best;
 }
+
+std::vector<RPQ> Dane::metodForData2() {
+	srand(time(NULL));
+	std::vector<RPQ> s = list;
+	std::swap(s.at(23), s.at(9));
+	std::cout << s.at(9);
+	std::vector<RPQ> best = s;
+	
+	int sum = 8368;
+	int currentSum = 0;
+	for (int i = 0; i < 9; i++) {
+		currentSum += best.at(i).P;
+	}
+
+	
+		
+		for (int i = 0; i < 9; i++) {
+			for (int j = 10; j < 24; j++) {
+				int tempSum = 0;
+				std::swap(s.at(i), s.at(j));
+				for (int z = 0; z < 10; z++) {
+					tempSum += s.at(z).P;
+				}
+				if (tempSum < currentSum) {
+					currentSum = tempSum;
+					
+				}
+				if (currentSum == sum) {
+					best = s;
+					break;
+				}
+			}
+			if (currentSum == sum) {
+
+				break;
+			}
+		}
+		
+		
+		
+	
+		best = s;
+	c_max = getC_max(best);
+	return best;
+}
+

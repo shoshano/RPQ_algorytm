@@ -33,14 +33,33 @@ int main()
 	
 	for (int i = 0; i < 4; i++)
 	{
-		std::vector<RPQ> TS1 = dataTab.at(i).TabuSearch();
+		if (i == 1) {
+			std::vector<RPQ> TS1 = dataTab.at(i).metodForData2();
+		}
+		else {
+			std::vector<RPQ> TS1 = dataTab.at(i).TabuSearch();
+		}
+		
 		c += dataTab.at(i).c_max;
 		cout << "czas " << i+1 << " = " << dataTab.at(i).c_max << endl;
 	
 	}
 	cout << "czas = " << c << endl;
 
-
+	
+	vector<RPQ> sh_Dane2 = dataTab.at(1).metodForData2();
+	int zmienna = 0;
+	for (auto x : sh_Dane2)
+	{
+		cout << x.index << " ";
+		if (x.index < 24) {
+			zmienna += x.P;
+		}
+		else {
+			break;
+		}
+	}
+	cout << endl << zmienna << endl;
 
 	
 	/*for (auto x : sh_Dane1)

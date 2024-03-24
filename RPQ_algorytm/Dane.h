@@ -6,6 +6,8 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm>
+#include <time.h>
+#include <stdlib.h>
 
 
 class Dane
@@ -40,7 +42,7 @@ public:
 
 	std::vector<RPQ> TabuSearch();
 
-	std::vector<RPQ> carlier();
+	std::vector<RPQ> metodForData2();
 
 
 
