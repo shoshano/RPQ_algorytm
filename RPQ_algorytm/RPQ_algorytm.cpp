@@ -4,7 +4,9 @@
 #include <string>
 #include <sstream>
 #include <algorithm>
+#include <iterator>
 #include <time.h>
+#include <random>
 #include "Dane.h"
 #include "Result.h"
 
@@ -36,7 +38,8 @@ int main()
 	for (int i = 0; i < 4; i++)
 	{
 		if (i == 1) {
-			std::vector<RPQ> TS1 = dataTab.at(i).schargePmtn();
+			//std::vector<RPQ> TS1 = dataTab.at(i).schargePmtn();
+			std::vector<RPQ> TS1 = dataTab.at(i).data2();
 		}
 		else {
 			std::vector<RPQ> TS1 = dataTab.at(i).TabuSearch();
@@ -51,14 +54,17 @@ int main()
 	cout << "Czas w sekundach: " << ((float)stop) / CLOCKS_PER_SEC << "s\n";
 	cout << "----------------------\n";
 
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < 4; i++) 
+	{
 		if (i == 1) {
-			for (auto x : dataTab.at(i).schargePmtn()) {
+			for (auto x : dataTab.at(i).data2())
+			{
 				cout << x.index << " ";
 			}
 		}
 		else {
-			for (auto x : dataTab.at(i).TabuSearch()) {
+			for (auto x : dataTab.at(i).TabuSearch()) 
+			{
 				cout << x.index << " ";
 			}
 		}

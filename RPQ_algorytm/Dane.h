@@ -6,6 +6,7 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm>
+#include <random>
 #include <time.h>
 #include <stdlib.h>
 
@@ -42,9 +43,7 @@ public:
 
 	std::vector<RPQ> TabuSearch();
 
-	std::vector<RPQ> metodForData2();
-
-	std::vector<RPQ> metodForData2_Maciek();
+	std::vector<RPQ> data2();
 
 
 

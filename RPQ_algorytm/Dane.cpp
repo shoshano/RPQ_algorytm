@@ -171,7 +171,6 @@ std::vector<RPQ> Dane::TabuSearch()
 	//std::vector<RPQ> s = sortR();
 	std::vector<RPQ> s = schrage();
 	std::vector<RPQ> best = s;
-	//std::vector<RPQ> t;
 
 	int bestC_max = getC_max(best);
 
@@ -196,6 +195,29 @@ std::vector<RPQ> Dane::TabuSearch()
 			}
 		}
 	c_max = bestC_max;
+	return best;
+}
+
+std::vector<RPQ> Dane::data2()
+{
+	std::vector<RPQ> s = list;
+	std::vector<RPQ> best;
+	int tmpC_max = 10000000000;
+
+	std::random_device rd;
+	std::mt19937 g(rd());
+	for (int i = 0; i < 100000; i++)
+	{
+		std::shuffle(s.begin(), s.end(),g);
+		
+		if (getC_max(s) < tmpC_max)
+		{
+			tmpC_max = getC_max(s);
+			best = s;
+		}
+
+	}
+	c_max = getC_max(best);
 	return best;
 }
 
